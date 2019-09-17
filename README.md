@@ -30,3 +30,10 @@ Transmitting with any SDR is most likely forbidden in most areas of the world. O
 ### Modifications
 
 The gnuradio flowchart and the settings are highly experimental and for testing. Real world UKW radios operate using slightly different parameters, e.g. most important 75 kHz modulation deviation. Also, the different sample rates might be not optimized.
+
+### Variant polyphase synthesizer
+This is actually the only reasonable solution: The pfb_synthesizer allows us to put a signal on evenly spaced channels. Complexity of the high sample rate domain does not change with the number of channels, e.g. just the parts including FM modulation at less than 200kSps have to be duplicated.
+
+```
+gnuradio-companion polyphase.grc
+```
